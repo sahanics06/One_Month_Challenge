@@ -30,7 +30,38 @@ Constraints:
 
   */
 
-// Solution
+// Solution using two pointers. Best solution O(N) if array elements >=0.
+
+int longestSubarrayWithSumK(vector<int> a, long long k) {
+    // Write your code here
+    int ans=0, n=a.size();
+    long long sum=0;
+    int i=0, j=0;
+    while(i<n)
+    {
+        sum+=a[i];
+        if(sum==k)
+        {
+            ans = max(ans, i-j+1);
+        }
+        if(sum>k)
+        {
+            while(sum>k)
+            {
+                sum-=a[j];
+                j++;
+            }
+            if(sum==k)
+            {
+                ans= max(ans, i-j+1);
+            }
+        }
+        i++;
+    }
+    return ans;
+}
+
+// Solution, best solution if array contains both negative and positive numbers.
 // if sum==k update answer; if sum-k is present in map then answer=max(answer, i-mp[sum-k]); if sum-k is not present in map then mp[sum-k]=i
 
 class Solution{
