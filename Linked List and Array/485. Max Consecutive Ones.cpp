@@ -18,6 +18,30 @@ nums[i] is either 0 or 1.
 
   */
 
+// Solution using one loop; c=0 if nums[i]==1; c++; ans=max(ans, c); else c=0;
+
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+        int n=nums.size(), ans=0, c=0;
+        for(int i=0; i<n; i++)
+        {
+            if(nums[i]==1)
+            {
+                c++;
+                ans=max(c, ans);
+            }
+            else
+            {
+                c=0;
+            }
+        }
+        
+        return ans;
+    }
+};
+
+
 // Solution
 
 class Solution {
