@@ -34,7 +34,10 @@ At most 5 * 104 calls will be made to addNum and findMedian.
 
 */
 
-// Solution 
+// Solution Efficient- Use two priority queue; left as max heap and right as min heap. We maintain two half. 
+// So that when median is called we can get the min and max in O(1). While adding number we check that element of left 
+// pq is smaller than right pq; if difference between size of left and right becomes greater than 1 then we pop an element 
+// from one and puch it to another.
 
 class MedianFinder {
 public:
