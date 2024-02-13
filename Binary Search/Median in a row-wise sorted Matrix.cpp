@@ -35,7 +35,7 @@ Constraints:
   */
 
 // Solution-> We find elements less than target; target= (R*C)/2; We will use binary search in l=min, r=high, m=(l+r)/2; we find elements less than m; 
-// We find the partition when elements get greater then target
+// We find the partition till when elements is less than target
 
 class Solution{   
 public:
