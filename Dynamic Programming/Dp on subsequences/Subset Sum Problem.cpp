@@ -51,7 +51,8 @@ public:
         {
             dp[i][0]=true;
         }
-        dp[0][arr[0]] = true; // since if i==0 return sum==arr[i] i.e return true if sum==arr[i] therefor dp[0][sum]=true
+        if(arr[0]<=sum) // this check is required because the first element might exceed the memory size of the dp.
+            dp[0][arr[0]] = true; // since if i==0 return sum==arr[i] i.e return true if sum==arr[i] therefor dp[0][sum]=true
         
         for(int i=1; i<n; i++)
         {
